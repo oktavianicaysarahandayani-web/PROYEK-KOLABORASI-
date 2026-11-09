@@ -1,0 +1,233 @@
+/* --- RESET & VARIABEL DASAR --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary-color: #2e7d32;
+    --primary-light: #4caf50;
+    --primary-dark: #1b5e20;
+    --accent-color: #81c784;
+    --bg-light: #f4f9f4;
+    --text-color: #333333;
+    --text-muted: #666666;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 2.5rem 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- KONTENER UTAMA --- */
+.indo-section {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* --- HEADER HALAMAN --- */
+.indo-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.indo-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.25rem;
+}
+
+.indo-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* --- TABLE / CARDS CONTAINER --- */
+.table-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* --- REPORT CARD (DETAILS ELEMEN) --- */
+.report-card {
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid #e0e8e0;
+}
+
+.report-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.report-summary {
+    padding: 1.25rem 1.75rem;
+    background-color: var(--white);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    transition: var(--transition);
+}
+
+.report-summary:hover {
+    background-color: rgba(76, 175, 80, 0.04);
+}
+
+.report-summary::-webkit-details-marker {
+    display: none; /* Hilangkan ikon panah default browser */
+}
+
+.summary-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+/* Kustom Ikon Toggle Panah */
+.icon-toggle {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    transform: rotate(-45deg);
+    transition: transform 0.3s ease;
+    margin-left: auto;
+}
+
+.report-card[open] .icon-toggle {
+    transform: rotate(45deg);
+}
+
+.badge-label {
+    background-color: rgba(76, 175, 80, 0.15);
+    color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.author-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+/* --- ISI KONTEN LAPORAN --- */
+.report-content {
+    padding: 2rem;
+    background-color: var(--bg-light);
+    border-top: 1px solid #e0e8e0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.report-content h2 {
+    font-size: 1.5rem;
+    color: var(--primary-dark);
+    text-align: center;
+}
+
+.report-content img {
+    width: 100%;
+    max-width: 300px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 0 auto;
+    box-shadow: var(--shadow);
+    display: block;
+}
+
+/* Mengatur agar teks & tanda pemisah di dalam report-content rata kiri sempurna */
+.report-content p {
+    color: var(--text-color);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    text-align: left; /* Memastikan teks rata kiri */
+}
+
+.report-content p strong {
+    color: var(--primary-dark);
+    display: block;
+    margin-top: 1.25rem;
+    font-size: 1.1rem;
+    border-bottom: 2px solid rgba(76, 175, 80, 0.2);
+    padding-bottom: 0.25rem;
+    text-align: left; /* Memastikan judul paragraf rata kiri */
+}
+
+/* --- TOMBOL KEMBALI --- */
+.back-btn-container {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.btn-kembali {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.btn-kembali:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* --- RESPONSIF / MOBILE --- */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem 0.5rem;
+    }
+
+    .indo-header h2 {
+        font-size: 2rem;
+    }
+
+    .report-summary {
+        padding: 1rem;
+    }
+
+    .report-content {
+        padding: 1.25rem;
+    }
+
+    .author-name {
+        font-size: 0.95rem;
+    }
+}
